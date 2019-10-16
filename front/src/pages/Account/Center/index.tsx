@@ -46,11 +46,11 @@ class Center extends React.PureComponent<CenterProps, CenterState> {
     };
   }
 
- static getDerivedStateFromProps(nextProps: CenterProps, prevState: CenterState): CenterState | null {
-    console.log('call getDerivedStateFromProps');
-    console.log(nextProps);
-    return null;
-  }
+//  static getDerivedStateFromProps(nextProps: CenterProps, prevState: CenterState): CenterState | null {
+//     console.log('call getDerivedStateFromProps');
+//     console.log(nextProps);
+//     return null;
+//   }
 
   handleTabChange = (key: string) => {
     this.setState({
@@ -59,13 +59,13 @@ class Center extends React.PureComponent<CenterProps, CenterState> {
   };
 
   render() {
-    // const {children}  = this.props;
+    const {children}  = this.props;
     const {tabKey}  = this.state;
     return (
       <GridContent>
         <Row gutter={24}>
           <Col lg={7} md={24}>
-            <Card bordered={false}>
+            <Card bordered={false} style={{ marginBottom: '24px' }}>
               <div>
                 <div className={styles.avatarHolder}>
                   <img src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" alt=""/>
@@ -106,7 +106,7 @@ class Center extends React.PureComponent<CenterProps, CenterState> {
               activeTabKey={tabKey}
               onTabChange={this.handleTabChange}
             >
-              {tabKey}
+              {children || tabKey}
             </Card>
           </Col>
         </Row>

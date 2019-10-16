@@ -2,11 +2,9 @@ import React from "react";
 import {Menu} from "antd";
 import {FormattedMessage} from "umi-plugin-react/locale"
 import GridContent from "@/components/PageHeaderWrapper/GridContent";
-import styles from "./index.less";
 import BaseView from "./BaseView";
 import SecurityView from "./SecurityView";
-import {SiderMenuProps} from '@/components/SiderMenu/SiderMenu';
-
+import styles from "./index.less";
 
 const menuMap = {
   base: <FormattedMessage id="account.settings.menuMap.basic" defaultMessage="Basic Settings"/>,
@@ -22,34 +20,42 @@ interface SettingsState {
 
 class Settings extends React.Component<SettingsProps, SettingsState> {
 
+  private readonly rootRef: React.RefObject<HTMLDivElement>;
+
   readonly state: Readonly<SettingsState>;
 
   constructor(props: SettingsProps) {
     super(props);
+    this.rootRef = React.createRef();
     this.state = {
       menuMode: 'inline',
       selectedMenuKey: 'base',
     };
   }
 
-  static getDerivedStateFromProps(nextProps: SettingsProps, prevState: SettingsState): SettingsState | null {
-    console.log('call getDerivedStateFromProps');
-    console.log(nextProps);
-    return null;
-  }
-
   componentDidMount() {
+    window.addEventListener('resize', this.resize);
     // this.setState({
     //   menuMode: "horizontal"
     // });
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resize);
+  }
+
+  resize = () => {
+    if (!this.rootRef) return;
+    requestAnimationFrame(() => {
+      console.log('call resize.');
+    });
+  };
 
   getMenuItem(): React.ReactNode[] {
     return Object.keys(menuMap).map(item => (
       <Menu.Item key={item}>{menuMap[item as keyof typeof menuMap]}</Menu.Item>
     ));
   }
-
 
   renderChildren(): React.ReactNode {
     const {selectedMenuKey} = this.state;
@@ -74,7 +80,7 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
     const {menuMode, selectedMenuKey} = this.state;
     return (
         <GridContent>
-          <div className={styles.main}>
+          <div className={styles.main} ref={this.rootRef}>
             <div className={styles.leftMenu}>
               <Menu mode={menuMode} selectedKeys={[selectedMenuKey]} onClick={this.handleMenuClick}>
                 {this.getMenuItem()}
