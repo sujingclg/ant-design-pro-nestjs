@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  proxy:
+
+  app:
+
+  db:
+
+networks:
+  front:
+    name: ${PROJECT_NAME}-front
+    driver: bridge
+
+  backend:
+    name: ${PROJECT_NAME}-backend
+    driver: bridge

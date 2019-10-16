@@ -1,0 +1,34 @@
+@import "~antd/lib/style/themes/default.less";
+
+.tableList {
+
+  .tableListForm {
+    :global {
+      .ant-form-item-control-wrapper {
+        flex: 1;
+      }
+
+      .ant-form-item {
+        display: flex;
+        margin-right: 0;
+        margin-bottom: 24px;
+
+        > .ant-form-item-label {
+          width: auto;
+          padding-right: 8px;
+          line-height: 32px;
+        }
+
+        .ant-form-item-control {
+          line-height: 32px;
+        }
+      }
+    }
+
+    .submitButtons {
+      display: block;
+      margin-bottom: 24px;
+      white-space: nowrap;  // 文本不换行
+    }
+  }
+}

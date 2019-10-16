@@ -1,0 +1,60 @@
+@import "~antd/lib/style/themes/default.less";
+
+.avatarHolder {
+  text-align: center;
+  margin-bottom: 24px;
+
+  & > img {
+    width: 104px;
+    margin-bottom: 20px;
+  }
+
+  .name {
+    font-size: 20px;
+    line-height: 28px;
+    color: @heading-color;
+    margin-bottom: 4px;
+  }
+}
+
+.detail {
+  p {
+
+  }
+}
+
+.tags {
+  :global {
+    .ant-tag {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.tagsTitle, .teamTitle {
+  color: @heading-color;
+  margin-bottom: 12px;
+}
+
+.team {
+  :global {
+    .ant-avatar {
+      margin-right: 12px;
+      margin-top: -1px;
+    }
+  }
+
+  .teamItem {
+    margin-bottom: 24px;
+    color: @text-color;
+    transition: color 0.3s;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:hover {
+      color: @primary-color;
+      cursor: pointer;
+    }
+  }
+}

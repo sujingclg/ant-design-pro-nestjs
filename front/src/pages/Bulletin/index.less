@@ -1,0 +1,33 @@
+@import "~antd/lib/style/themes/default.less";
+
+@cardMargin: 5px 5px 5px 0;
+
+.cardList {
+
+  overflow: auto;
+  height: 80vh;
+  //width: 400px;
+
+  .card {
+    margin: @cardMargin;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 21, 41, 0.35);
+    border: 2px solid rgba(0, 0, 0, 0);
+    //height: 90px;
+  }
+
+  .card:hover {
+    border: 2px solid @normal-color;
+    //background-color: @normal-color;
+    box-shadow: none;
+    transition: all 0.3s;
+  }
+
+  .current-card {
+    .card;
+    //box-shadow: 2px 2px 4px rgba(0, 21, 41, 0.35);
+    box-shadow: none;
+    border: 2px solid @primary-color;
+    //background-color: @normal-color;
+  }
+}

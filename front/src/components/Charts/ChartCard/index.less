@@ -1,0 +1,78 @@
+@import "~antd/lib/style/themes/default.less";
+
+
+.chartCard {
+
+  .total {
+    height: 38px;
+    margin-top: 4px;
+    margin-bottom: 0;
+    overflow: hidden;
+    color: @heading-color;
+    font-size: 30px;
+    line-height: 38px;
+    white-space: nowrap;  // 文本不换行, 直到遇到<br>标签
+    text-overflow: ellipsis;  // 当文本溢出包含元素时显示省略符号来代表被修剪的文本
+    //word-break: break-all; // 允许在单词内折行
+  }
+
+  .chartTop {
+    position: relative;
+    overflow: hidden;
+
+    &.chartTopMargin {
+      margin-bottom: 12px;
+    }
+    .avatar {
+      position: relative;
+      top: 4px;
+      float: left;
+      margin-right: 20px;
+      img {
+        border-radius: 100%;
+      }
+    }
+    .metaWrap {
+      float: left;
+
+      .meta{
+        color: @text-color-secondary;
+        font-size: @font-size-base;
+        line-height: 22px;
+
+        .title {
+
+        }
+        .action {
+          position: absolute;
+          top: 4px;
+          right: 0;
+          line-height: 1px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .content {
+    margin-bottom: 12px;
+
+    .contentFixed {
+
+    }
+  }
+
+  .footer {
+    margin-top: 0;
+    padding-top: 9px;
+    border-top: 1px solid @border-color-split;
+
+    &.footerMargin {
+      margin-top: 20px;
+    }
+    
+    & > * {
+      position: relative;
+    }
+  }
+}

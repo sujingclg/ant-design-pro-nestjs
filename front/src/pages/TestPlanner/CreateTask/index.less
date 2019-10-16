@@ -1,0 +1,22 @@
+@import "~antd/lib/style/themes/default.less";
+
+.steps:global(.ant-steps) {
+  max-width: 760px;
+  margin: 16px auto;
+}
+
+.stepForm {
+  margin: 40px auto 0;
+  max-width: 500px;
+  //background-color: #13C2C2;
+
+  .stepFormText {
+    margin-bottom: 16px;
+    :global {
+      .ant-form-item-label,
+      .ant-form-item-control {
+        line-height: 22px;
+      }
+    }
+  }
+}

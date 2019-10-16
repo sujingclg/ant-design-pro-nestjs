@@ -1,0 +1,90 @@
+@import "~antd/lib/style/themes/default.less";
+@header-hover-background-color: rgba(0, 0, 0, 0.1);
+
+.header {
+  display: flex;
+  height: @layout-header-height;
+  padding: 0;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.2);
+  position: relative;
+  z-index: 10;
+
+  .logo {
+    height: @layout-header-height;
+    padding: 0 12px;
+    font-size: 20px;
+    //line-height: @layout-header-height;
+    //vertical-align: top;
+    cursor: pointer;
+
+    img {
+      width: 32px;
+      vertical-align: middle;
+    }
+  }
+
+  .trigger {
+    height: @layout-header-height;
+    padding: 0 24px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: auto;
+    transition: all 0.3s;
+    &:hover {
+      background-color: @header-hover-background-color;
+    }
+  }
+}
+
+.menu {
+  :global(.ant-dropdown-menu-item) {
+    min-width: 160px;
+  }
+}
+
+.right {
+  height: @layout-header-height;
+  overflow: hidden;
+  display: flex;
+  .action {
+    cursor: pointer;
+    padding: 0 12px;
+    transition: all 0.3s;
+    height: 100%;
+    //&:global(.opened),
+    &:hover {
+      background-color: @header-hover-background-color;
+    }
+    &:global(.opened) {
+      background-color: @header-hover-background-color;  // NoticeIcon在展开时的样式
+    }
+  }
+  .account {
+    .avatar {
+      margin: ~'calc((@{layout-header-height} - 24px) / 2)' 0;
+      margin-right: 8px;
+      color: @primary-color;
+      background: rgba(255, 255, 255, 0.85);
+      vertical-align: top;
+    }
+  }
+  .username {
+  }
+}
+
+.dark {
+  .action {
+    color: rgba(255, 255, 255, 0.85);
+    > i {
+      color: rgba(255, 255, 255, 0.85);
+    }
+    //&:global(opened),
+    &:hover {
+      background: @primary-color;
+    }
+    //:global(.ant-badge) {
+    //  color: rgba(255, 255, 255, 0.85)
+    //}
+  }
+}

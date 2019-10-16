@@ -1,0 +1,45 @@
+@import "~antd/lib/style/themes/default.less";
+
+.trendItem {
+  display: flex;
+  font-size: @font-size-base;
+  line-height: 22px;
+
+  .text {
+    overflow: hidden;
+    white-space: nowrap;  // 文本不换行, 直到遇到<br>标签
+    text-overflow: ellipsis;  // 当文本溢出包含元素时显示省略符号来代表被修剪的文本
+  }
+
+  .flag {
+    position: relative;
+    margin-left: 4px;
+    i {
+      font-size: 12px;
+      transform: scale(0.83);  // 将其大小缩放为原尺寸的 83%
+    }
+  }
+
+  .up {
+    top: 1px;
+    color: @red-6;
+  }
+
+  .down {
+    top: -1px;
+    color: @green-6;
+  }
+
+  &.trendItemGrey .up,
+  &.trendItemGrey .down {
+    color: @text-color;
+  }
+
+  &.reverseColor .up {
+    color: @green-6
+  }
+
+  &.reverseColor .down {
+    color: @red-6;
+  }
+}

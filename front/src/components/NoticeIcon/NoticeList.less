@@ -1,0 +1,103 @@
+@import "~antd/lib/style/themes/default.less";
+
+
+.list {
+  max-height: 400px;
+  overflow: auto;
+
+  .item {
+    padding-left: 24px;
+    padding-right: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &.read {
+      opacity: 0.4;
+    }
+
+    //&:last-child {
+    //  border-bottom: 0;
+    //}
+
+    &:hover {
+      background-color: @primary-1;
+    }
+
+    .meta {
+      width: 100px;
+    }
+
+    .avatar {
+      margin-top: 4px;
+      background: #ffffff;
+    }
+
+    .iconElement {
+      font-size: 32px;
+    }
+
+    .title {
+      margin-bottom: 8px;
+      font-weight: normal;
+      //word-wrap: break-word;  // 长单词文本折行
+      //width: 100px;
+    }
+
+    .description {
+      font-size: 12px;
+      line-height: @line-height-base;
+    }
+
+    .datetime {
+      margin-top: 4px;
+      font-size: 12px;
+      line-height: @line-height-base;
+    }
+
+    .extra {
+      float: right;
+      margin-top: -1.5px;
+      margin-right: 0;
+      color: @text-color-secondary;
+      font-weight: normal;
+    }
+  }
+}
+
+.notFound {
+  padding: 73px 0 88px;
+  color: @text-color-secondary;
+  text-align: center;
+  img {
+    display: inline-block;
+    height: 76px;
+    margin-bottom: 16px;
+  }
+}
+
+.bottomBar {
+  height: 46px;
+  color: @text-color;
+  line-height: 46px;
+  text-align: center;
+  border-top: 1px solid @border-color-split;
+  border-radius: 0 0 @border-radius-base @border-radius-base;  // 设置左/右上/右下/左下/的圆角半径
+  transition: all 0.3s;
+  display: flex;
+
+  div {
+    cursor: pointer;
+    user-select: none;
+    flex-basis: 0;
+    flex-grow: 1;
+
+    &:hover {
+      color: @heading-color;
+    }
+
+    &:not(:only-child):not(:last-child) {
+      border-right: 1px solid @border-color-split;
+    }
+  }
+}

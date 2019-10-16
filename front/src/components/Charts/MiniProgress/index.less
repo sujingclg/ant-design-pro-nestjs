@@ -1,0 +1,39 @@
+@import "~antd/lib/style/themes/default.less";
+
+.miniProgress {
+  position: relative;
+  width: 100%;
+  padding: 5px 0;
+  // 进度条实际上显示在 padding 以内的区域, 而 target 中的 span 元素显示在 padding 范围内
+  // 因此需要注意 span 的高度不能超过 padding
+
+  .target {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 9;
+    width: 20px;  // 此宽度为隐形宽度, 用于设置 Tooltip 的感应区域
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;  // span 中没有元素, 因此必须同时设置宽和高才能显示出来
+      height: 4px;
+      background-color: @primary-color;
+    }
+    span:last-child {
+      top: auto;  // 必须使用 auto 覆盖上面定义的 top: 0;
+      bottom: 0;
+    }
+  }
+
+  .progressWrap {
+    background-color: @background-color-base;
+
+
+    .progress {
+      background-color: @primary-color;
+      border-radius: 500em;
+    }
+  }
+}

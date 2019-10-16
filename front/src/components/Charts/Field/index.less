@@ -1,0 +1,18 @@
+@import "~antd/lib/style/themes/default.less";
+
+.field {
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;  // 文本不换行, 直到遇到<br>标签
+  text-overflow: ellipsis;  // 当文本溢出包含元素时显示省略符号来代表被修剪的文本
+
+  .label, .number {
+    font-size: @font-size-base;
+    line-height: 22px;
+  }
+
+  .number {
+    margin-left: 8px;
+    color: @heading-color;
+  }
+}
