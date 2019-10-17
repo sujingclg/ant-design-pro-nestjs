@@ -3,11 +3,17 @@ import React from 'react';
 import {Row, Col, Card, Divider, Tag, Avatar} from 'antd';
 import GridContent from '@/components/PageHeaderWrapper/GridContent';
 import {ConnectProps} from '@/models/connect';
+import Articles from './Articles';
 import styles from './index.less';
 
 import {getNotice} from './tempData';
 
-const operationTabList = [
+type TabType = {
+  key: 'articles' | 'applications' | 'projects',
+  tab: React.ReactNode;
+}
+
+const operationTabList: TabType[] = [
   {
     key: 'articles',
     tab: (<span>文章</span>),
@@ -28,7 +34,7 @@ interface CenterState {
   newTags?: any[];
   inputVisible: boolean;
   inputValue: string;
-  tabKey: string;
+  selectedTabKey: TabType['key'];
 }
 
 // @connect(({loading, user}) => ({}))
@@ -42,7 +48,7 @@ class Center extends React.PureComponent<CenterProps, CenterState> {
       newTags: [],
       inputVisible: false,
       inputValue: '',
-      tabKey: 'articles',
+      selectedTabKey: 'articles',
     };
   }
 
@@ -54,13 +60,27 @@ class Center extends React.PureComponent<CenterProps, CenterState> {
 
   handleTabChange = (key: string) => {
     this.setState({
-      tabKey: key,
+      selectedTabKey: key as TabType['key'],
     });
   };
 
+  renderChildren(): React.ReactNode {
+    const {selectedTabKey} = this.state;
+    switch (selectedTabKey) {
+      case 'articles':
+        return <Articles/>;
+      case 'applications':
+        return <div>applications</div>;
+      case 'projects':
+        return <div>projects</div>;
+      default:
+        return null
+    }
+  }
+
   render() {
     const {children}  = this.props;
-    const {tabKey}  = this.state;
+    const {selectedTabKey}  = this.state;
     return (
       <GridContent>
         <Row gutter={24}>
@@ -103,10 +123,10 @@ class Center extends React.PureComponent<CenterProps, CenterState> {
               className={styles.tabsCard}
               bordered={false}
               tabList={operationTabList}
-              activeTabKey={tabKey}
+              activeTabKey={selectedTabKey}
               onTabChange={this.handleTabChange}
             >
-              {children || tabKey}
+              {this.renderChildren()}
             </Card>
           </Col>
         </Row>

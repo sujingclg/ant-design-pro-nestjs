@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import {Badge, Icon, Spin, Tabs, Menu} from "antd";
+import {Badge, Icon, Spin, Tabs} from "antd";
 import HeaderDropdown from "../HeaderDropdown";
 import NoticeList, {NoticeListProps} from "./NoticeList";
 import {NoticeIconDataItemType} from "./typings";

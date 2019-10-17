@@ -120,14 +120,13 @@ class OverviewTable extends React.PureComponent<OverviewTableProps, OverviewTabl
         formValues: values,
       });
     });
-    console.log(this.state.formValues);
-  }
+  };
 
   handleConfigFormCancel = () => {
     this.setState({
       modalVisible: false,
     });
-  }
+  };
 
   handleFormReset = () => {
     const {form} = this.props;
@@ -135,7 +134,7 @@ class OverviewTable extends React.PureComponent<OverviewTableProps, OverviewTabl
     this.setState({
       formValues: {},
     });
-  }
+  };
 
   renderQueryForm(): React.ReactNode {
     const {form: {getFieldDecorator}} = this.props;

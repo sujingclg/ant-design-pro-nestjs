@@ -35,9 +35,7 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
 
   componentDidMount() {
     window.addEventListener('resize', this.resize);
-    // this.setState({
-    //   menuMode: "horizontal"
-    // });
+    this.resize();
   }
 
   componentWillUnmount() {
@@ -45,9 +43,17 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
   }
 
   resize = () => {
-    if (!this.rootRef) return;
+    if (!this.rootRef.current) { return }
     requestAnimationFrame(() => {
-      console.log('call resize.');
+      if (!this.rootRef.current) { return }
+      let menuMode: 'inline' | 'horizontal' = 'inline';
+      const { offsetWidth } = this.rootRef.current;  // offsetWidth 水平方向 width + 左右padding + 左右border-width
+      if (window.innerWidth < 768 && offsetWidth > 400) {
+        menuMode = 'horizontal';
+      }
+      this.setState({
+        menuMode,
+      });
     });
   };
 
@@ -56,6 +62,12 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
       <Menu.Item key={item}>{menuMap[item as keyof typeof menuMap]}</Menu.Item>
     ));
   }
+
+  handleMenuClick = ({key}:{key: any}) => {
+    this.setState({
+      selectedMenuKey: key,
+    })
+  };
 
   renderChildren(): React.ReactNode {
     const {selectedMenuKey} = this.state;
@@ -69,12 +81,6 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
     }
     return null;
   }
-
-  handleMenuClick = ({key}:{key: any}) => {
-    this.setState({
-      selectedMenuKey: key,
-    })
-  };
 
   render() {
     const {menuMode, selectedMenuKey} = this.state;

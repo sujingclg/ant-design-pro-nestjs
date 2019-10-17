@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {Form, Button} from 'antd';
 import {FormComponentProps} from 'antd/lib/form';
 import {connect} from 'dva';
@@ -7,6 +7,8 @@ import {FormattedMessage} from 'umi-plugin-react/locale';
 import {Dispatch, ConnectState} from '@/models/connect';
 import {TestPlannerModelState, matClassData} from '../model';
 import styles from './index.less';
+
+const FormItem = Form.Item;
 
 const formItemLayout = {
   labelCol: {
@@ -21,7 +23,7 @@ function mapStateToProps(
   {testPlanner, user, loading}: { testPlanner: TestPlannerModelState } & ConnectState,
 ): Partial<Step3Props> {
   return {
-    publisher: user.currentUser.username,
+    publisher: user.currentUser!.username,
     newTaskData: testPlanner.newTaskData,
     submitting: loading.effects['testPlanner/submitTaskStepForm'],
   };
@@ -60,7 +62,7 @@ class Step3 extends React.Component<Step3Props, {}> {
         });
       }
     });
-  }
+  };
 
   onPrev = () => {
     const {dispatch} = this.props;
@@ -70,34 +72,34 @@ class Step3 extends React.Component<Step3Props, {}> {
         payload: 'sampleInfo',
       });
     }
-  }
+  };
 
   render() {
     const {publisher, newTaskData, submitting} = this.props;
     return (
-      <React.Fragment>
+      <Fragment>
         <Form layout='horizontal' className={styles.stepForm}>
-          <Form.Item {...formItemLayout} className={styles.stepFormText} label='发布者'>
+          <FormItem {...formItemLayout} className={styles.stepFormText} label='发布者'>
             {publisher}
-          </Form.Item>
-          <Form.Item {...formItemLayout} className={styles.stepFormText} label='材料分类'>
+          </FormItem>
+          <FormItem {...formItemLayout} className={styles.stepFormText} label='材料分类'>
             {matClassData.filter((item) => item.key === newTaskData.matClass)[0].name}
-          </Form.Item>
-          <Form.Item {...formItemLayout} className={styles.stepFormText} label='材料类型'>
+          </FormItem>
+          <FormItem {...formItemLayout} className={styles.stepFormText} label='材料类型'>
             {newTaskData.matType}
-          </Form.Item>
-          <Form.Item {...formItemLayout} className={styles.stepFormText} label='材料批次'>
+          </FormItem>
+          <FormItem {...formItemLayout} className={styles.stepFormText} label='材料批次'>
             {newTaskData.lotNum}
-          </Form.Item>
-          <Form.Item {...formItemLayout} className={styles.stepFormText} label='供应商'>
+          </FormItem>
+          <FormItem {...formItemLayout} className={styles.stepFormText} label='供应商'>
             {newTaskData.supplier}
-          </Form.Item>
-          <Form.Item {...formItemLayout} className={styles.stepFormText} label='起止日期'>
+          </FormItem>
+          <FormItem {...formItemLayout} className={styles.stepFormText} label='起止日期'>
             {newTaskData.startStopDate![0].format('YYYY-MM-DD')}
             &nbsp; ~ &nbsp;
             {newTaskData.startStopDate![1].format('YYYY-MM-DD')}
-          </Form.Item>
-          <Form.Item
+          </FormItem>
+          <FormItem
             wrapperCol={{
               xs: {span: 24, offset: 0},
               sm: {
@@ -113,9 +115,9 @@ class Step3 extends React.Component<Step3Props, {}> {
             <Button onClick={this.onPrev} style={{marginLeft: 8}}>
               <FormattedMessage id='taskTable.prev' defaultMessage='Prev'/>
             </Button>
-          </Form.Item>
+          </FormItem>
         </Form>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

@@ -11,7 +11,7 @@ const defaultSettings: Settings = {
   menu: {
     locale: true,
   },
-  title: 'ant-design-pro-nestjs',
+  title: 'antd-nestjs',
 };
 
 export default defaultSettings;

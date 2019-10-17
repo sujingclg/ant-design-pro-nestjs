@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import {Form, Select, TreeSelect, Button} from "antd";
 import {FormComponentProps} from "antd/lib/form";
 import {connect} from "dva";
@@ -7,6 +7,7 @@ import {Dispatch} from "@/models/connect";
 import {TestPlannerModelState, matClassData, matTypeData} from "../model";
 import styles from "./index.less";
 
+const FormItem = Form.Item;
 const {Option} = Select;
 
 // TODO 查treeData的数据类型
@@ -124,9 +125,9 @@ class Step1 extends React.Component<Step1Props, Step1State> {
     const {matTypes} = this.state;
 
     return (
-      <React.Fragment>
+      <Fragment>
         <Form layout="horizontal" className={styles.stepForm} hideRequiredMark>
-          <Form.Item {...formItemLayout} label="材料分类">
+          <FormItem {...formItemLayout} label="材料分类">
             {getFieldDecorator('matClass', {
               initialValue: newTaskData.matClass,
               rules: [{required: true, message: '未选择材料分类'}],
@@ -137,8 +138,8 @@ class Step1 extends React.Component<Step1Props, Step1State> {
                   ))}
               </Select>
             )}
-          </Form.Item>
-          <Form.Item {...formItemLayout} label="材料类型">
+          </FormItem>
+          <FormItem {...formItemLayout} label="材料类型">
             {getFieldDecorator('matType', {
               initialValue: newTaskData.matType,
               rules: [{required: true, message: '未选择材料类型'}],
@@ -149,16 +150,16 @@ class Step1 extends React.Component<Step1Props, Step1State> {
                 ))}
               </Select>
             )}
-          </Form.Item>
-          <Form.Item {...formItemLayout} label="材料批次">
+          </FormItem>
+          <FormItem {...formItemLayout} label="材料批次">
             {getFieldDecorator('lotNum', {
               initialValue: newTaskData.lotNum,
               rules: [{required: true, message: '未选择材料批次号'}],
             })(
               <TreeSelect treeData={treeData} />
             )}
-          </Form.Item>
-          <Form.Item
+          </FormItem>
+          <FormItem
             wrapperCol={{
               xs: {span: 24, offset: 0},
               sm: {
@@ -171,9 +172,9 @@ class Step1 extends React.Component<Step1Props, Step1State> {
             <Button type="primary" onClick={this.onValidateForm}>
               <FormattedMessage id="taskTable.next" defaultMessage="Next"/>
             </Button>
-          </Form.Item>
+          </FormItem>
         </Form>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

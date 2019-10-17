@@ -1,0 +1,40 @@
+@import "~antd/lib/style/themes/default.less";
+
+.baseView {
+  display: flex;
+
+  .left {
+    flex: 1;
+    min-width: 224px;
+    max-width: 448px;
+  }
+
+  .right {
+    flex: 1;
+    padding-left: 104px;
+
+    .avatarTitle {
+      height: 22px;
+      line-height: 22px;
+      font-size: @font-size-base;
+      color: @heading-color;
+      margin-bottom: 8px;
+    }
+
+    .avatar {
+      width: 144px;
+      height: 144px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      img {
+        width: 100%;
+      }
+    }
+
+    .buttonView {
+      width: 144px;
+      text-align: center;
+    }
+  }
+
+}

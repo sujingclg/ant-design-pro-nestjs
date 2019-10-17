@@ -20,7 +20,7 @@
   }
 
   .right {
-    height: 400px;
+    flex: 1;
     padding: 8px 40px;
 
     .title {
@@ -29,6 +29,19 @@
       font-weight: 500;
       color: @heading-color;
       margin-bottom: 12px;
+    }
+  }
+}
+
+@media screen and (max-width: @screen-md) {
+  .main {
+    flex-direction: column;
+    .leftMenu {
+      width: 100%;
+      border: none;
+    }
+    .right {
+      padding: 40px;
     }
   }
 }

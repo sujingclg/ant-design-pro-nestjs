@@ -1,36 +1,22 @@
-import React from "react";
+import React, {Fragment} from "react";
+import {List} from 'antd';
 
+interface SecurityViewProps {}
 
-interface SecurityViewProps {
-}
-
-interface SecurityViewState {
-}
-
-// const SecurityView: React.FC<SecurityViewProps> = (props => {
-//   return (
-//     <>
-//
-//     </>
-//   )
-// });
-
-class SecurityView extends React.Component<SecurityViewProps, SecurityViewState> {
-
-  readonly state: Readonly<SecurityViewState>;
-
-  constructor(props: SecurityViewProps) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div>
-        SecurityView
-      </div>
-    )
-  }
-}
+const SecurityView: React.FC<SecurityViewProps> = (props => {
+  return (
+    <Fragment>
+      <List
+        itemLayout="horizontal"
+        dataSource={[{key:1}, {key:2}, {key:3}]}
+        renderItem={item=>(
+          <List.Item actions={[<a>Modify</a>,]}>
+            <List.Item.Meta title={'Item title ' + item.key} description={'Item description'}/>
+          </List.Item>
+        )}
+      />
+    </Fragment>
+  )
+});
 
 export default SecurityView;
