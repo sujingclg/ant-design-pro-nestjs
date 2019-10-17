@@ -4,6 +4,7 @@ export default {
   'login.username': '用户名: admin or user',
   'login.password': '密码: 123456',
   'login.rememberMe': '自动登录',
+  'login.register': '注册账户',
   'login.login': '登录',
 
   'login.getCaptcha': '获取验证码',

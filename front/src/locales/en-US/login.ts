@@ -4,6 +4,7 @@ export default {
   'login.username': 'username: admin or user',
   'login.password': 'password: 123456',
   'login.rememberMe': 'Remember me',
+  'login.register': 'Sign up',
   'login.login': 'Login',
 
   'login.getCaptcha': 'Get Captcha',

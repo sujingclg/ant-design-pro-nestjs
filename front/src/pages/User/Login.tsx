@@ -3,6 +3,7 @@ import {connect} from 'dva';
 import {Checkbox, Alert, Modal} from 'antd';
 import {ValidateCallback} from 'antd/lib/form';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
+import Link from 'umi/link';
 import {formatMessage, FormattedMessage} from 'umi-plugin-locale';
 import Login from '@/components/Login';
 import {ConnectState, Dispatch} from '@/models/connect';
@@ -51,7 +52,7 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
 
   onTabChange: (loginType: string) => void = loginType => {
     this.setState({loginType});
-  }
+  };
 
   onGetCaptcha: () => Promise<any> = () => {
     return new Promise<{}>((resolve, reject) => {
@@ -75,7 +76,7 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
      // */
      //  resolve();
     });
-  }
+  };
 
   handleSubmit: ValidateCallback<{[key: string]: string}> = (err, values) => {
     const {loginType} = this.state;
@@ -90,17 +91,17 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
         },
       });
     }
-  }
+  };
 
   changeAutoLogin = (e: CheckboxChangeEvent) => {
     this.setState({
       autoLogin: e.target.checked,
     });
-  }
+  };
 
   renderMessage: (content: string) => React.ReactNode = content => (
     <Alert style={{marginBottom: '24px'}} message={content} type='error' showIcon />
-  )
+  );
 
   render() {
     const {login, submitting} = this.props;
@@ -154,6 +155,9 @@ class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
             <Checkbox checked={autoLogin} onChange={this.changeAutoLogin}>
               <FormattedMessage id='login.rememberMe'/>
             </Checkbox>
+            <Link style={{ float: 'right' }} to="/user/register">
+              <FormattedMessage id="login.register" />
+            </Link>
           </div>
           <Submit loading={submitting}>
             <FormattedMessage id='login.login'/>

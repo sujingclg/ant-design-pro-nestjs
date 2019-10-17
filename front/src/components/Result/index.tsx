@@ -3,10 +3,9 @@ import classNames from "classnames";
 import {Icon} from "antd";
 import styles from "./index.less";
 
-
 interface ResultProps {
   type: "success" | "error";
-  title: string;
+  title: React.ReactNode;
   description?: string;
   extra?: React.ReactNode;
   actions?: React.ReactNode;

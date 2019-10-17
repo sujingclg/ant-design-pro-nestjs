@@ -14,6 +14,7 @@ export default [
       { path: "./", redirect: "login" },
       { path: "login", name: "login", component: "./User/Login" },
       { path: "register", name: "register", component: "./User/Register" },
+      { path: "register-result", name: "register.result", component: "./User/RegisterResult" },
       { component: "404" },
     ],
   },
