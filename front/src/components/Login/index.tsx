@@ -91,7 +91,7 @@ class Login extends React.Component<LoginProps, LoginState> {
    * 在 validateTrigger 再次被触发时再次校验
    * @param event
    */
-  handleSubmit: ((event: React.FormEvent) => void) = (event) => {
+  handleSubmit: (event: React.FormEvent) => void = event => {
     event.preventDefault();
     // activeTabKey, tabsFieldsMap 分别对应于源码中的 type, active
     const {activeTabKey, tabsFieldsMap} = this.state;

@@ -32,7 +32,7 @@ class BaseView extends React.Component<BaseViewProps, BaseViewState> {
     })
   }
 
-  handleSubmit = () => {
+  handleSubmit: (event: React.FormEvent) => void = () => {
     console.log('call handleSubmit')
   };
 
