@@ -62,6 +62,32 @@ export default [
         ],
       },
       {
+        path: '/dashboard',
+        name: 'Dashboard',
+        icon: 'dashboard',
+        routes: [
+          {
+            path: '/dashboard',
+            redirect: '/dashboard/analysis'
+          },
+          {
+            path: '/dashboard/analysis',
+            name: 'Analysis',
+            component: './Dashboard/Analysis'
+          },
+          {
+            path: '/dashboard/monitor',
+            name: 'Monitor',
+            component: './Dashboard/Monitor'
+          },
+          {
+            path: '/dashboard/workplace',
+            name: 'Workplace',
+            component: './Dashboard/Workplace'
+          },
+        ]
+      },
+      {
         path: "data-analysis",
         name: "DataAnalysis",
         icon: "solution",

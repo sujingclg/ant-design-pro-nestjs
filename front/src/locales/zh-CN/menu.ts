@@ -10,6 +10,11 @@ export default {
 
   'menu.Bulletin': '公告栏',
 
+  'menu.Dashboard': '仪表板',
+  'menu.Dashboard.Analysis': '分析页',
+  'menu.Dashboard.Monitor': '监控页',
+  'menu.Dashboard.Workplace': '工作台',
+
   'menu.DataAnalysis': '数据分析',
   'menu.DataAnalysis.page0': 'page0',
   'menu.DataAnalysis.page1': 'page1',

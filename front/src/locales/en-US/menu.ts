@@ -10,6 +10,11 @@ export default {
 
   'menu.Bulletin': 'Bulletin',
 
+  'menu.Dashboard': 'Dashboard',
+  'menu.Dashboard.Analysis': 'Analysis',
+  'menu.Dashboard.Monitor': 'Monitor',
+  'menu.Dashboard.Workplace': 'Workplace',
+
   'menu.DataAnalysis': 'Data Analysis',
   'menu.DataAnalysis.page0': 'page0',
   'menu.DataAnalysis.page1': 'page1',
