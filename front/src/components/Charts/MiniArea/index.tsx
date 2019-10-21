@@ -73,7 +73,7 @@ class MiniArea extends React.Component<MiniAreaProps, {}> {
               <Axis key="axis-x" name="x" visible={false} {...xAxis} />  {/* name 属性用于指定对应到数据源中的字段名 */}
               <Axis key="axis-y" name="y" visible={false} {...yAxis} />
               <Tooltip showTitle={false} crosshairs={false} />
-              <Geom type="area" position="x*y" color={color} tooltip={tooltip} shape="smooth"/>
+              <Geom type="area" position="x*y" color={color} tooltip={tooltip} shape="smooth" style={{ fillOpacity: 1 }}/>
               {hasLine ? (
                 <Geom type="line" position="x*y" color={borderColor} size={borderWidth} tooltip={tooltip} shape="smooth"/>
               ) : (

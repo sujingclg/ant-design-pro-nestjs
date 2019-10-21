@@ -21,6 +21,7 @@
     "lodash": "^4.17.15",
     "memoize-one": "^5.1.1",
     "moment": "^2.24.0",
+    "numeral": "^2.0.6",
     "path-to-regexp": "^3.1.0",
     "qs": "^6.9.0",
     "react-container-query": "^0.11.0",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "@types/classnames": "^2.2.9",
     "@types/lodash": "^4.14.144",
+    "@types/numeral": "^0.0.26",
     "@types/qs": "^6.5.3",
     "@types/react-document-title": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "^2.4.0",

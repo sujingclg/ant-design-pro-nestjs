@@ -22,7 +22,7 @@ const Trend: React.FC<TrendProps> = (props => {
     ...restProps  // 用于获取 style 属性给 div 元素
   } = props;
 
-  const classString = classNames(
+  const clsString = classNames(
     styles.trendItem,
     {
       [styles.trendItemGrey]: !colorful,
@@ -31,23 +31,26 @@ const Trend: React.FC<TrendProps> = (props => {
     className
   );
 
+  // return (
+  //   <div {...restProps} className={clsString} title={typeof children == 'string' ? children : ''}>
+  //     <div className={styles.text}>
+  //       <span>{children}</span>
+  //     </div>
+  //     {flag && (
+  //       <div className={styles.flag}>
+  //         <span className={styles[flag]}>  {/* flag 为 up 或 down */}
+  //           <Icon type={`caret-${flag}`} />
+  //         </span>
+  //       </div>
+  //     )}
+  //   </div>
+  // )
   return (
-    <div
-      {...restProps} className={classString}
-      title={typeof children == 'string' ? children : ''}
-    >
-      <div className={styles.text}>
-        <span>{children}</span>
-      </div>
-      {flag && (
-        <div className={styles.flag}>
-          <span className={styles[flag]}>  {/* flag 为 up 或 down */}
-            <Icon type={`caret-${flag}`} />
-          </span>
-        </div>
-      )}
+    <div {...restProps} className={clsString} title={typeof  children === 'string' ? children : ''}>
+      <span>{children}</span>
+      {flag && (<span className={styles[flag]}><Icon type={`caret-${flag}`} /></span>)}
     </div>
-  )
+  );
 });
 
 export default Trend;

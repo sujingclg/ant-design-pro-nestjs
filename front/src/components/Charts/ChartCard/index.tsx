@@ -28,7 +28,7 @@ export interface ChartCardProps extends Partial<CardProps>{
   action?: React.ReactNode;  // 右上角的提示图标
   total: React.ReactNode | number | (() => React.ReactNode | number);  // 醒目显示的总数
   footer?: React.ReactNode;  // 图表下方的提示栏
-  contentHeight?: number;  // 包含的图表组件的高度
+  contentHeight?: number;  // ChartCard 内包含的图表组件的高度
   loading?: boolean;
   style?: React.CSSProperties;
 }
@@ -73,7 +73,7 @@ class ChartCard extends React.Component<ChartCardProps, {}> {
         </div>
         {children && (
           <div className={styles.content} style={{height: contentHeight || 'auto'}}>
-            <div className={contentHeight || styles.contentFixed}>{children}</div>
+            <div className={contentHeight && styles.contentFixed}>{children}</div>
           </div>
         )}
         {footer && (

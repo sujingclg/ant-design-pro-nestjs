@@ -1,0 +1,58 @@
+@import "~antd/lib/style/themes/default.less";
+
+.trendText {
+  margin-left: 8px;
+  color: @heading-color;
+}
+
+.salesCard {
+  :global {
+    .ant-tabs-bar {
+      padding-left: 16px;
+    }
+
+    .ant-tabs-extra-content {
+      padding-right: 24px;
+    }
+  }
+
+  .salesBar {
+    padding: 0 0 32px 32px;
+  }
+
+  .salesRank {}
+}
+
+.rankingList {
+  margin: 25px;
+  padding: 0;
+  list-style: none;
+}
+
+.salesExtra {
+  display: inline-block;
+  margin-right: 24px;
+
+  a {
+    color: @text-color;
+    margin-left: 24px;
+    &:hover {
+      color: @primary-color;
+    }
+    &.currentDate {
+      color: @primary-color;
+    }
+  }
+}
+
+@media screen and (max-width: @screen-lg) {
+  .salesExtra {
+    display: none;
+  }
+}
+
+@media screen and (max-width: @screen-sm) {
+  .salesExtraWrap {
+    display: none;
+  }
+}
