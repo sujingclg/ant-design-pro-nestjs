@@ -3,11 +3,15 @@ import {Chart, ChartProps} from "bizcharts";
 import classNames from "classnames";
 import styles from "./index.less";
 
+const defaultPieProps = {
+  innerRadius: 0.75,
+};
 
-export interface PieProps {
-  data: {x: string; y: number}[];
+export interface PieProps extends Readonly<typeof defaultPieProps> {
+  // data: {x: string; y: number}[];
   height: number;
-  title: React.ReactNode;
+  // innerRadius?: number;
+  // title: React.ReactNode;
   color?: string;
   colors?: string[];
   padding?: ChartProps['padding'];
@@ -24,12 +28,15 @@ interface PieState {
 
 class Pie extends React.Component<PieProps, PieState> {
 
-  readonly state: Readonly<PieState>;
-
+  private readonly rootRef: React.RefObject<HTMLDivElement>;
   private _chart?: any;
+
+  readonly state: Readonly<PieState>;
+  static defaultProps = defaultPieProps;
 
   constructor(props: PieProps) {
     super(props);
+    this.rootRef = React.createRef();
     this.state = {
       height: 0,
       legendData: [],
@@ -38,10 +45,10 @@ class Pie extends React.Component<PieProps, PieState> {
   }
 
   componentDidUpdate(prevProps: PieProps) {
-    const {data} = this.props;
-    if (data != prevProps.data) {
-      this.getLegendData();
-    }
+    // const {data} = this.props;
+    // if (data != prevProps.data) {
+    //   this.getLegendData();
+    // }
   }
 
   getLegendData = () => {
@@ -49,9 +56,14 @@ class Pie extends React.Component<PieProps, PieState> {
   };
 
   render() {
-    const classString = classNames();
+    const {
+      innerRadius,
+    } = this.props;
+    const clsString = classNames();
     return (
-      <div className={classString}>
+      <div className={clsString} ref={this.rootRef}>
+        {/*<Chart></Chart>*/}
+        {innerRadius}
       </div>
     )
   }

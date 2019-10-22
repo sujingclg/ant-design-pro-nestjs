@@ -1,0 +1,71 @@
+@import "~antd/lib/style/themes/default.less";
+
+.main {
+  .title {
+    margin-bottom: 16px;
+    color: @text-color;
+    font-size: @font-size-lg;
+    transition: all 0.3s;
+  }
+
+  .subTitle {
+    height: 22px;
+    overflow: hidden;
+    color: @text-color-secondary;
+    font-size: @font-size-base;
+    line-height: 22px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+  }
+
+  .value {
+    margin-top: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+    //text-overflow: ellipsis;
+    word-break: break-all;
+
+    & > span {
+      font-size: 24px;
+      display: inline-block;
+      margin-right: 32px;
+      height: 32px;
+      line-height: 32px;
+      color: @heading-color;
+    }
+
+    .suffix {
+      margin-left: 4px;
+      color: @text-color;
+      font-size: 16px;
+      font-style: normal;
+    }
+
+    .subTotal {
+      color: @text-color-secondary;
+      font-size: @font-size-lg;
+      vertical-align: top;
+
+      i {
+        margin-left: 4px;
+        transform: scale(0.6);
+      }
+
+      :global {
+        .anticon-caret-up {
+          color: @red-6;
+        }
+        .anticon-caret-down {
+          color: @green-6;
+        }
+      }
+    }
+  }
+}
+
+.light {
+  .value > span {
+    color: @text-color;
+  }
+}
