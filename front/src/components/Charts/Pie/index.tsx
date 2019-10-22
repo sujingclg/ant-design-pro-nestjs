@@ -3,20 +3,16 @@ import {Chart, ChartProps} from "bizcharts";
 import classNames from "classnames";
 import styles from "./index.less";
 
-const defaultPieProps = {
-  innerRadius: 0.75,
-};
-
-export interface PieProps extends Readonly<typeof defaultPieProps> {
+export interface PieProps {
   // data: {x: string; y: number}[];
-  height: number;
-  // innerRadius?: number;
+  // height: number;
+  innerRadius: number;
   // title: React.ReactNode;
-  color?: string;
-  colors?: string[];
-  padding?: ChartProps['padding'];
-  percent?: number;
-  total?: React.ReactNode | number | (() => React.ReactNode | number);
+  // color?: string;
+  // colors?: string[];
+  // padding?: ChartProps['padding'];
+  // percent?: number;
+  // total?: React.ReactNode | number | (() => React.ReactNode | number);
   style?: React.CSSProperties;
 }
 
@@ -29,10 +25,10 @@ interface PieState {
 class Pie extends React.Component<PieProps, PieState> {
 
   private readonly rootRef: React.RefObject<HTMLDivElement>;
-  private _chart?: any;
-
+  static defaultProps = {
+    innerRadius: 0.75,
+  };
   readonly state: Readonly<PieState>;
-  static defaultProps = defaultPieProps;
 
   constructor(props: PieProps) {
     super(props);
@@ -44,16 +40,7 @@ class Pie extends React.Component<PieProps, PieState> {
     };
   }
 
-  componentDidUpdate(prevProps: PieProps) {
-    // const {data} = this.props;
-    // if (data != prevProps.data) {
-    //   this.getLegendData();
-    // }
-  }
-
-  getLegendData = () => {
-    if (!this._chart) return;
-  };
+  componentDidUpdate(prevProps: PieProps) {}
 
   render() {
     const {

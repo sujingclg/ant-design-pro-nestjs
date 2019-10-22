@@ -21,7 +21,7 @@ const CustomTab = (
     </Col>
     <Col span={12} style={{ paddingTop: 36 }}>
       <Pie
-        height={64}
+        // height={64}
         innerRadius={32}
       />
     </Col>
