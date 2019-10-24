@@ -4,7 +4,6 @@ import autoHeight from "../autoHeight";
 import {Slider, DataSet} from '../_utils';
 import styles from "./index.less";
 
-
 export interface TimelineChartProps {
   data: {
     x: number;

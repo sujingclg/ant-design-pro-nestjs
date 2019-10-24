@@ -71,3 +71,7 @@ export function genOfflineChartData() {
   }
   return offlineChartData;
 }
+
+export function genSalesPieData() {
+  return [];
+}

@@ -1,2 +1,5 @@
 export Slider from "bizcharts-plugin-slider";
-export DataSet from "@antv/data-set";
+
+import DataSet from "@antv/data-set";
+const {DataView} = DataSet;
+export {DataSet, DataView};

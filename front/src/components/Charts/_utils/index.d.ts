@@ -37,14 +37,15 @@ declare class DataSet {
   });
   state: {start: number; end: number};
   setState: (name: string, value: any) => void;
-  createView: (name?: string, options?: any) => View;
+  createView: (name?: string, options?: any) => DataView;
+
 }
 
-declare class View {
-  source: (source: any, options?: any) => View;
+declare class DataView {
+  source: (source: any, options?: any) => DataView;
   transform: (options: {
     type: string,
     callback?: (row: any) => any,
     [key: string]: any,
-  }) => View;
+  }) => DataView;
 }

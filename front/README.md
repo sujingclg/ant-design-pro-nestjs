@@ -5,8 +5,7 @@
 
 white-space: nowrap; 可用于禁止行内元素换行
 
-React, TypeScript defaultProps
-- https://juejin.im/post/5cd3eb5ce51d453a7e4c17f0
+React Blog
 - https://github.com/sundjly/blog
 
 模板之家

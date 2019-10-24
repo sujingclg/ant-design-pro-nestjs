@@ -5,7 +5,7 @@ import PageLoading from '@/components/PageLoading';
 import styles from './Analysis.less';
 
 import {genSalesData, genVisitData, genRankingListData, genVisitData2,
-  genOfflineData, genOfflineChartData} from './genData';
+  genOfflineData, genOfflineChartData, genSalesPieData} from './genData';
 
 const IntroduceRow = lazy(() => import('./IntroduceRow'));
 const SalesCard = lazy(() => import('./SalesCard'));
@@ -67,6 +67,7 @@ class Analysis extends React.Component<AnalysisProps, AnalysisState> {
             <Suspense fallback={null}>
               <ProportionSales
                 dropdownGroup={dropdownGroup}
+                salesPieData={genSalesPieData()}
               />
             </Suspense>
           </Col>
