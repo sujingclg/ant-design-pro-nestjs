@@ -1,7 +1,13 @@
 import React from "react";
 import {Col} from "antd";
-import responsive from "./responsive";
 import styles from "./index.less";
+
+const responsive = {
+  1: {xs: 24},
+  2: {xs: 24, sm: 12},
+  3: {xs: 24, sm: 12, md: 8},
+  4: {xs: 24, sm: 12, md: 6},
+};
 
 export interface DescriptionProps {
   term?: React.ReactNode;
@@ -9,14 +15,19 @@ export interface DescriptionProps {
   style?: React.CSSProperties;
 }
 
-const Description: React.FC<DescriptionProps> = (props => {
-  const {term, colNum, children, ...restProps} = props;
+const Description: React.FC<DescriptionProps> = (
+  {
+    term,
+    colNum,
+    children,
+    ...restProps
+  }) => {
   return (
     <Col {...responsive[colNum!]} {...restProps}>
       {term && <div className={styles.term}>{term}</div>}
       {children != null && children != undefined && <div className={styles.detail}>{children}</div>}
     </Col>
   )
-});
+};
 
 export default Description;

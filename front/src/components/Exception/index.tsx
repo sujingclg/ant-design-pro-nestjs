@@ -1,10 +1,11 @@
-import React from "react";
+import React, {memo} from "react";
 import classNames from "classnames";
 import {Button} from "antd";
 // import * as H from "history";
 import Link from "umi/link";
 import typeConfig from "./typeConfig";
 import styles from "./index.less";
+import {func} from "prop-types";
 
 interface ExceptionProps {
   type?: keyof typeof typeConfig;
@@ -12,14 +13,14 @@ interface ExceptionProps {
   desc?: React.ReactNode;
   img?: string;
   actions?: React.ReactNode;
-  style?: React.CSSProperties;
+  backText: string;
+  redirect: string;
   className?: string;
-  backText?: string;
-  redirect?: string;
+  style?: React.CSSProperties;
 }
 
-const Exception: React.FC<ExceptionProps> = (props => {
-  const {
+const Exception: React.FC<ExceptionProps> = ((
+  {
     type,
     title,
     desc,
@@ -29,7 +30,20 @@ const Exception: React.FC<ExceptionProps> = (props => {
     backText = "返回首页",
     redirect = "/",
     ...restProps
-  } = props;
+  }) =>
+// function Exception(
+//   {
+//     type,
+//     title,
+//     desc,
+//     img,
+//     actions,
+//     className,
+//     backText = "返回首页",
+//     redirect = "/",
+//     ...restProps
+//   }: ExceptionProps)
+{
   const pageType = (type && type in typeConfig) ? type : "404";
   return (
     <div className={classNames(styles.exception, className)} {...restProps}>
@@ -46,7 +60,7 @@ const Exception: React.FC<ExceptionProps> = (props => {
           {actions || React.createElement(
             Link,
             {
-              to: redirect!,
+              to: redirect,
               href: redirect,
             },
             <Button type="primary">{backText}</Button>,

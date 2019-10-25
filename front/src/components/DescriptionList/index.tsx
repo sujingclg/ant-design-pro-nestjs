@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import classNames from "classnames";
 import {Row} from "antd";
 import Description, {DescriptionProps} from "./Description";
@@ -6,10 +6,10 @@ import styles from "./index.less";
 
 interface DescriptionListProps {
   title?: React.ReactNode
-  colNum?: DescriptionProps['colNum'];  // 默认宽度下的列数
-  layout?: 'horizontal' | 'vertical';
+  colNum: DescriptionProps['colNum'];  // 默认宽度下的列数
+  layout: 'horizontal' | 'vertical';
   size?: 'large' | 'small';
-  gutter?: number;
+  gutter: number;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -23,14 +23,19 @@ class DescriptionList extends React.PureComponent<DescriptionListProps, {}> {
   // }
 
   static readonly Description = Description;
+  static readonly defaultProps = {
+    colNum: 3,
+    layout: 'horizontal',
+    gutter: 32,
+  };
 
   render() {
     const {
       title,
-      colNum = 3,
-      layout = 'horizontal',
+      colNum,
+      layout,
       size,
-      gutter = 32,
+      gutter,
       className,
       children,
       ...restProps

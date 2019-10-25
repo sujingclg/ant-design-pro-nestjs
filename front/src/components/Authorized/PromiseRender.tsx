@@ -1,16 +1,9 @@
-import React from "react";
+import React from 'react';
 
-interface PromiseRenderProps {
-}
-interface PromiseRenderState {
-}
-class PromiseRender extends React.Component<PromiseRenderProps, PromiseRenderState> {
-  readonly state: Readonly<PromiseRenderState>;
+interface PromiseRenderProps {}
 
-  constructor(props: PromiseRenderProps) {
-    super(props);
-    this.state = {};
-  }
-}
+const PromiseRender: React.FC<PromiseRenderProps> = ({}) => {
+  return <div></div>
+};
 
 export default PromiseRender;
