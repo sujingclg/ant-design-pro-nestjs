@@ -1,8 +1,8 @@
-import React from "react";
-import {Icon} from "antd";
-import Link from "umi/link";
-import RightContent, {RightContentProps} from "./RightContent";
-import styles from "./index.less";
+import React from 'react';
+import {Icon} from 'antd';
+import Link from 'umi/link';
+import RightContent, {RightContentProps} from './RightContent';
+import styles from './index.less';
 
 export interface GlobalHeaderProps extends Partial<RightContentProps> {
   collapsed?: boolean;
@@ -20,12 +20,12 @@ class GlobalHeader extends React.Component<GlobalHeaderProps, {}> {
     this.state = {};
   }
 
-  toggle = (): void => {
+  toggle: () => void  = () => {
     const {onCollapse, collapsed} = this.props;
     if (onCollapse) {
       onCollapse(!collapsed);
     }
-  }
+  };
 
   render() {
     const {collapsed, isMobile, logo} = this.props;

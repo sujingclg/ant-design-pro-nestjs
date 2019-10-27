@@ -2,12 +2,12 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './index.less';
 
-export interface LinkType {
+export type LinkType = {
   key: string;
   title: string | React.ReactNode;
   href: string;
   isBlankTarget?: boolean;
-}
+};
 
 export interface GlobalFooterProps {
   className?: string;
@@ -17,7 +17,7 @@ export interface GlobalFooterProps {
 
 const GlobalFooter: React.FC<GlobalFooterProps> = (props => {
   const {className, links, copyright} = props;
-  const clsString = classNames(styles.globalFooter, props.className);
+  const clsString = classNames(styles.globalFooter, className);
   return (
     <footer className={clsString}>
       {links && (

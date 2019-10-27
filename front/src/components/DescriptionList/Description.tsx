@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import {Col} from "antd";
 import styles from "./index.less";
 
@@ -15,7 +15,7 @@ export interface DescriptionProps {
   style?: React.CSSProperties;
 }
 
-const Description: React.FC<DescriptionProps> = (
+const Description: React.FC<DescriptionProps> = memo((
   {
     term,
     colNum,
@@ -25,9 +25,9 @@ const Description: React.FC<DescriptionProps> = (
   return (
     <Col {...responsive[colNum!]} {...restProps}>
       {term && <div className={styles.term}>{term}</div>}
-      {children != null && children != undefined && <div className={styles.detail}>{children}</div>}
+      {children !== null && children !== undefined && <div className={styles.detail}>{children}</div>}
     </Col>
   )
-};
+});
 
 export default Description;
