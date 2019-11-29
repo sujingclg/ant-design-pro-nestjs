@@ -19,9 +19,9 @@ interface GlobalModelType {
   namespace: 'global';
   state: GlobalModelState;
   effects: {
-    fetchNotices: Effect,
-    changeNoticeReadState: Effect,
-    clearNotices: Effect,
+    fetchNotices: Effect;
+    changeNoticeReadState: Effect;
+    clearNotices: Effect;
   };
   reducers: {
     changeLayoutCollapsed: Reducer<GlobalModelState>;

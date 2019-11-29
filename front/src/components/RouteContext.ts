@@ -8,7 +8,7 @@ export interface RouteContextType {
   // menuData?: MenuDataItemType[];
   // isMobile?: boolean;
   collapsed?: boolean;
-  contentWidth?: Settings['contentWidth'];
+  CSSLayoutType?: Settings['CSSLayoutType'];
 }
 
 const RouteContext: React.Context<RouteContextType> = createContext({});

@@ -167,7 +167,6 @@ class Step1 extends React.Component<Step1Props, Step1State> {
                 offset: formItemLayout.labelCol.span,
               }
             }}
-            label=""
           >
             <Button type="primary" onClick={this.onValidateForm}>
               <FormattedMessage id="taskTable.next" defaultMessage="Next"/>

@@ -91,6 +91,7 @@ export default [
         path: "data-analysis",
         name: "DataAnalysis",
         icon: "solution",
+        component: './DataAnalysis/page0',
         authority: ["admin"],
         routes: [
           {

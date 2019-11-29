@@ -1,5 +1,5 @@
 export interface Settings {
-  contentWidth: 'Fluid' | 'Fixed';
+  CSSLayoutType: 'Fluid' | 'Fixed';
   menu: {
     locale: boolean;
   };
@@ -7,7 +7,7 @@ export interface Settings {
 }
 
 const defaultSettings: Settings = {
-  contentWidth: 'Fluid',
+  CSSLayoutType: 'Fluid',
   menu: {
     locale: true,
   },

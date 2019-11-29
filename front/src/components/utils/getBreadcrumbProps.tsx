@@ -29,6 +29,7 @@ const itemRender: AntdBreadcrumbProps['itemRender'] = (route, params, routes, pa
     return <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
   }
   // 避免设置最后一个route和没有component的route为可点击链接
+  // console.log(route);
   // @ts-ignore
   return isLastRoute || !route.component ? (
     <span>{route.breadcrumbName}</span>

@@ -2,10 +2,9 @@ import React from "react";
 import {PageHeader, Typography, Tabs} from "antd";
 import GridContent from "./GridContent";
 import RouteContext from "../RouteContext";
-import styles from "./index.less";
 import getBreadcrumbProps from "../utils/getBreadcrumbProps";
 import {WithFalse} from "../typings";
-
+import styles from "./index.less";
 
 const {Title} = Typography;
 
@@ -112,8 +111,7 @@ class PageHeaderWrapper extends React.Component<PageHeaderWrapperProps, {}> {
 
     return (
       <RouteContext.Consumer>
-        {value => {
-          return (
+        {value => (
             <PageHeader
               title={titleComponent}
               {...restProps}
@@ -122,8 +120,7 @@ class PageHeaderWrapper extends React.Component<PageHeaderWrapperProps, {}> {
             >
               {this.renderPageHeader(content, extraContent)}
             </PageHeader>
-          );
-        }}
+          )}
       </RouteContext.Consumer>
     );
   };

@@ -15,8 +15,9 @@ import {getAuthority} from '@/utils/authority';
  * @param path
  * @param routeData: 由 umi 从 config 文件的 routes 属性传入
  */
-function getRouteAuthority(path: string, routeData: Route[]) {
-  let authorities: string[] | string | undefined;  // route中定义的authorities可能是字符串也可能是数组, 未定义表示当前路由没有设置权限
+function getRouteAuthority(path: string, routeData: Route[]): string[] | string | undefined {
+  // route中定义的authorities可能是字符串也可能是数组, 未定义表示当前路由没有设置权限
+  let authorities: string[] | string | undefined;
   routeData.forEach(route => {
     // 判断传入的path是否匹配当前递归到的route的path属性, 如是, 获取递归到的route中的属性, 覆盖之前的
     if (pathToRegexp(`${route.path}(.*)`).test(path)) {

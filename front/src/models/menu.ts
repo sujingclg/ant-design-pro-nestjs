@@ -15,8 +15,7 @@ const {check} = Authorized;
  * @param parentName: 父节点的名词, 即路径中该父节点的标识, 示例: /{rootPath}/parentName/childName
  * @param parentAuthority
  */
-function formatter(routeData: Route[], parentAuthority?: string[] | string, parentName?: string)
-  : MenuDataItemType[] {
+function formatter(routeData: Route[], parentAuthority?: string[] | string, parentName?: string): MenuDataItemType[] {
   if (!routeData) { return []; }
   return routeData.map(item => {
     if (!item.name || !item.path) { return null; }
@@ -75,7 +74,7 @@ function filterMenuData(menuData: MenuDataItemType[]): MenuDataItemType[] {
   }
   return menuData
     .filter(item => item.name && !item.hideInMenu)
-    .map(item => (check(item.authority, getSubMenu(item), undefined)) as MenuDataItemType)
+    .map(item => check(item.authority, getSubMenu(item), undefined) as MenuDataItemType)
     .filter(item => item);
 }
 

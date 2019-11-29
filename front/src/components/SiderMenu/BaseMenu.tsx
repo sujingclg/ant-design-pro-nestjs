@@ -51,6 +51,10 @@ export interface BaseMenuProps
 
 class BaseMenu extends React.Component<BaseMenuProps, {}> {
 
+  static defaultProps = {
+    theme: 'dark',
+    mode: 'inline',
+  };
   readonly state: Readonly<{}>;
 
   constructor(props: BaseMenuProps) {
@@ -184,8 +188,8 @@ class BaseMenu extends React.Component<BaseMenuProps, {}> {
 
     const {
       openKeys,
-      theme = 'dark',
-      mode = 'inline',
+      theme,
+      mode,
       className,
       collapsed,
       onOpenChange,

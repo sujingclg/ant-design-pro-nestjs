@@ -8,7 +8,6 @@ import styles from "./index.less";
 
 const {Sider} = Layout;
 
-// TODO 查 Pick Exclude
 export interface SiderMenuProps extends Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ["onCollapse"]>> {
 // export interface SiderMenuProps extends BaseMenuProps {
   isOpenKeysMoreThanOne?: boolean;
@@ -131,7 +130,7 @@ class SiderMenu extends React.PureComponent<SiderMenuProps, SiderMenuState> {
       <Sider
         theme={theme}
         width={siderWidth}
-        breakpoint="lg"
+        breakpoint="lg"  // 开启响应式侧边栏
         onCollapse={collapse => {
           if (onCollapse) {
             onCollapse(collapse);

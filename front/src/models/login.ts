@@ -3,7 +3,7 @@ import {routerRedux} from 'dva/router';
 import {stringify, parse} from 'qs';
 import {Effect} from './connect';
 import {userLogin, fakeAccountLogin, getFakeCaptcha} from '@/services/api';
-import {reloadAuthorized} from '@/utils/Authorized';
+// import {reloadAuthorized} from '@/utils/Authorized';
 import {setAuthority} from '@/utils/authority';
 
 export function getPageQuery() {
@@ -40,7 +40,7 @@ const LoginModel: LoginModelType = {
     * login(action, {call, put}) {
       if (action.payload.loginType === 'mobile') { return; }
       const response: {
-        status: 'ok' | 'error', currentAuthority: string,
+        status: 'ok' | 'error'; currentAuthority: string;
       } = yield call(fakeAccountLogin, action.payload);
       // console.log('response', response);
       yield put({
@@ -49,7 +49,7 @@ const LoginModel: LoginModelType = {
       });
 
       if (response.status === 'ok') {
-        reloadAuthorized();
+        // reloadAuthorized();
         const urlParams = new URL(window.location.href);
         let {redirect}: { redirect: string | null } = getPageQuery();
         if (redirect) {
@@ -79,7 +79,7 @@ const LoginModel: LoginModelType = {
           currentAuthority: [],
         },
       });
-      reloadAuthorized();
+      // reloadAuthorized();
       yield put(
         routerRedux.push({
           pathname: '/user/login',

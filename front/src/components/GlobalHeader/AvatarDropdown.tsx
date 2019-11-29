@@ -42,7 +42,6 @@ class AvatarDropdown extends React.Component<AvatarDropdownProps, AvatarDropdown
 
     const menu = (
       <Menu className={styles.menu}
-            // style={{minWidth: '160px', backgroundColor: "#ce1"}}
             onClick={this.onMenuClick} >
         <Menu.Item key="center">
           <Icon type="user"/>

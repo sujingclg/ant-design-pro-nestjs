@@ -1,13 +1,10 @@
-import React from "react";
+import React, {Fragment, memo} from "react";
 import {Layout, Icon} from "antd";
 import GlobalFooter from "@/components/GlobalFooter";
 
-
 const {Footer} = Layout;
 
-interface FooterViewProps {}
-
-const FooterView: React.FC<FooterViewProps> = (props => {
+const FooterView: React.FC<{}> = memo(props => {
   return (
     <Footer style={{padding: 0}}>
       <GlobalFooter
@@ -19,9 +16,9 @@ const FooterView: React.FC<FooterViewProps> = (props => {
         //   }
         // ]}
         copyright={
-          <React.Fragment>
+          <Fragment>
             Copyright <Icon type="copyright"/> 2019 Created by Sujing
-          </React.Fragment>
+          </Fragment>
         }
       />
     </Footer>

@@ -10,3 +10,6 @@ React Blog
 
 模板之家
 - http://www.cssmoban.com
+
+如何在Typescript中使用defaultProps
+- https://medium.com/@martin_hotell/react-typescript-and-defaultprops-dilemma-ca7f81c661c7

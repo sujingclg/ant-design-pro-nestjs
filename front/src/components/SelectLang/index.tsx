@@ -7,7 +7,7 @@ import HeaderDropdown from "../HeaderDropdown";
 
 interface SelectLangProps {
   className?: string;
-  styles?: React.CSSProperties;
+  style?: React.CSSProperties;
 }
 
 class SelectLang extends React.Component<SelectLangProps, {}> {
@@ -19,7 +19,7 @@ class SelectLang extends React.Component<SelectLangProps, {}> {
     this.state = {};
   }
 
-  changeLang: (({key}: {key:string}) => void) = ({key}) => {
+  changeLang: (({key}: {key: string}) => void) = ({key}) => {
     setLocale(key, true);
   };
 
@@ -33,7 +33,7 @@ class SelectLang extends React.Component<SelectLangProps, {}> {
       'pt-BR': '🇧🇷',
     };
 
-    const locales: {key: string, label: string, icon: string}[] = [
+    const locales: {key: string; label: string; icon: string}[] = [
       {
         key: 'zh-CN',
         label: '简体中文',

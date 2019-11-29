@@ -6,20 +6,20 @@ import styles from "./GridContent.less";
 
 
 interface GridContentProps {
-  contentWidth?: Settings['contentWidth'];
+  CSSLayoutType?: Settings['CSSLayoutType'];
 }
 
 const GridContent: React.FC<GridContentProps> = (props => {
-  const {children, contentWidth: propsContentWidth} = props;
+  const {children, CSSLayoutType: propsCSSLayoutType} = props;
   return (
     <RouteContext.Consumer>
       {value => {
-        const contentWidth = propsContentWidth || value.contentWidth;
-        let className = styles.main;
+        const contentWidth = propsCSSLayoutType || value.CSSLayoutType;
+        let clsString = styles.main;
         if (contentWidth == 'Fixed') {
-          className = classNames(styles.main, styles.wide);
+          clsString = classNames(styles.main, styles.wide);
         }
-        return <div className={className}>{children}</div>;
+        return <div className={clsString}>{children}</div>;
       }}
     </RouteContext.Consumer>
   )

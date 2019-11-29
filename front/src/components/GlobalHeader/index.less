@@ -1,4 +1,5 @@
 @import "~antd/lib/style/themes/default.less";
+
 @header-hover-background-color: rgba(0, 0, 0, 0.1);
 
 .header {
@@ -31,6 +32,7 @@
     cursor: pointer;
     margin-right: auto;
     transition: all 0.3s;
+
     &:hover {
       background-color: @header-hover-background-color;
     }
@@ -38,8 +40,13 @@
 }
 
 .menu {
-  :global(.ant-dropdown-menu-item) {
-    min-width: 160px;
+  :global {
+    .ant-dropdown-menu-item {
+      min-width: 160px;
+    }
+    .anticon {
+      margin-right: 10px;
+    }
   }
 }
 
@@ -47,6 +54,7 @@
   height: @layout-header-height;
   overflow: hidden;
   display: flex;
+
   .action {
     cursor: pointer;
     padding: 0 12px;
@@ -56,10 +64,12 @@
     &:hover {
       background-color: @header-hover-background-color;
     }
+
     &:global(.opened) {
-      background-color: @header-hover-background-color;  // NoticeIcon在展开时的样式
+      background-color: @header-hover-background-color; // NoticeIcon在展开时的样式
     }
   }
+
   .account {
     .avatar {
       margin: ~'calc((@{layout-header-height} - 24px) / 2)' 0;
@@ -69,6 +79,7 @@
       vertical-align: top;
     }
   }
+
   .username {
   }
 }
@@ -76,13 +87,16 @@
 .dark {
   .action {
     color: rgba(255, 255, 255, 0.85);
+
     > i {
       color: rgba(255, 255, 255, 0.85);
     }
+
     //&:global(opened),
     &:hover {
       background: @primary-color;
     }
+
     //:global(.ant-badge) {
     //  color: rgba(255, 255, 255, 0.85)
     //}

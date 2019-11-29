@@ -2,13 +2,14 @@ import React from "react";
 import classNames from "classnames";
 import {Layout} from "antd";
 import {connect} from "dva";
+import {Dispatch} from 'redux';
 import DocumentTitle from "react-document-title";
 import {ContainerQuery} from "react-container-query";
 import getPageTitle from "@/utils/getPageTitle";
 import defaultSettings, {Settings} from "@/defaultSettings";
 import SiderMenu from "@/components/SiderMenu";
 import RouteContext, {RouteContextType} from "@/components/RouteContext";
-import {ConnectState, Dispatch} from "@/models/connect";
+import {ConnectState} from "@/models/connect";
 import logo from "@/assets/logo.svg";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -122,7 +123,7 @@ class BasicLayout extends React.Component<BasicLayoutProps, {}> {
             onCollapse={this.handleMenuCollapse}
           />
         )}
-        <Layout style={{minHeight: '100vh'}} className={styles.layout}>
+        <Layout className={styles.layout}>
           <Header
             {...this.props}
             isTopMenu={isTopMenu}
@@ -142,7 +143,7 @@ class BasicLayout extends React.Component<BasicLayoutProps, {}> {
         <DocumentTitle title={getPageTitle(pathname, breadcrumbNameMap)}>
           <ContainerQuery query={query}>
             {params => (
-              <RouteContext.Provider value={{...this.getContext(), contentWidth: isTopMenu ? 'Fixed' : 'Fluid'}}>
+              <RouteContext.Provider value={{...this.getContext(), CSSLayoutType: isTopMenu ? 'Fixed' : 'Fluid'}}>
                 <div className={classNames(params)}>{layout}</div>
               </RouteContext.Provider>
             )}

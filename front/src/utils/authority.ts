@@ -1,5 +1,5 @@
 import defaultSettings from "@/defaultSettings";
-
+import {reloadAuthorized} from "./Authorized";
 
 export const authorityKey = `${defaultSettings.title}-authority`;
 
@@ -30,5 +30,7 @@ export function getAuthority(str?: string): string[] {
  */
 export function setAuthority(authority?: string | string[]): void {
   const authorityArray = typeof authority === 'string' ? [authority] : authority;
-  return localStorage.setItem(authorityKey, JSON.stringify(authorityArray));
+  localStorage.setItem(authorityKey, JSON.stringify(authorityArray));
+  // TODO 此函数的放置位置? 原来在 login.ts 中
+  // reloadAuthorized();
 }
