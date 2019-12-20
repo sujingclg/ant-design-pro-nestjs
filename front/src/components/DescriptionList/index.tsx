@@ -5,7 +5,7 @@ import Description, {DescriptionProps} from "./Description";
 import styles from "./index.less";
 
 interface DescriptionListProps {
-  title?: React.ReactNode
+  title?: React.ReactNode;
   colNum: DescriptionProps['colNum'];  // 默认宽度下的列数
   layout: 'horizontal' | 'vertical';
   size?: 'large' | 'small';
