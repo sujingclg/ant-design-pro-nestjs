@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "test": "umi test",
-    "dev": "umi dev",
+    "start": "umi dev",
     "build": "umi build"
   },
   "keywords": [],
